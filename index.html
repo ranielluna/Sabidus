@@ -1,0 +1,1084 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sabidus</title>
+<link rel="shortcut icon" href="./Img/Sabidus Logo Azul.svg" type="image/x-icon">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<script src="./Script/script.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+  :root {
+    --primary-color: #3498DB;
+    --secondary-color: #2C3E50;
+    --accent-color: #3498DB;
+    --light-color: #ECF0F1;
+    --dark-color: #34495E;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+  }
+
+  .navbar {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+
+  
+  .hero-section {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 120px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://images.unsplash.com/photo-1513151233558-d860c5398176?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080') no-repeat center center;
+    background-size: cover;
+    opacity: 0.1;
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-title {
+    font-weight: 700;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+  }
+
+  .hero-cta {
+    font-size: 1.1rem;
+    padding: 12px 36px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+  }
+
+  .hero-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  }
+
+
+  .navbar-brand {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--secondary-color) !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .navbar-brand span {
+    color: var(--primary-color);
+  }
+
+
+  .nav-link {
+    font-weight: 500;
+    color: var(--dark-color) !important;
+    transition: color 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--primary-color) !important;
+  }
+
+  .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  .card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  }
+
+  .section-title {
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-top: 4rem;
+    position: relative;
+    display: inline-block;
+  
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 50px;
+    height: 3px;
+    background-color: var(--accent-color);
+  }
+
+  .timeline {
+    border-left: 3px solid var(--primary-color);
+    padding-left: 20px;
+    margin-left: 10px;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+  }
+
+  .timeline-item:before {
+    content: "";
+    position: absolute;
+    left: -29px;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    box-shadow: 0 0 0 5px rgba(52, 152, 219, 0.2);
+  }
+
+  .team-member-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto;
+    border: 5px solid var(--light-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+  }
+
+  .team-member-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+
+  .solution-feature {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+  }
+
+  .solution-feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+
+  .info-btn {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+  .popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow: auto;
+    padding-top: 20px; 
+}
+
+  .popup-content {
+    background-color: white;
+    position: absolute;
+    top: 55%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+  .close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+  .process-step {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    display: block;
+  }
+
+  .process-step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+
+  .document-link {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: var(--dark-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  }
+
+  .document-link:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+
+  .document-link i {
+    font-size: 2rem;
+    margin-right: 20px;
+  }
+
+  .document-link .document-info {
+    flex-grow: 1;
+  }
+
+  .document-link .document-title {
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  .document-link .document-description {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  .team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+  }
+
+  .footer {
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 50px 0;
+  }
+
+  .footer a {
+    color: var(--light-color);
+    transition: color 0.3s ease;
+  }
+
+  .footer a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .social-icons a {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .social-icons a:hover {
+    transform: translateY(-3px);
+    color: var(--accent-color);
+  }
+
+  #container-process {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+
+}
+
+#container-process-print {
+  height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+  @media (max-width: 996px) {
+    #container-process {
+    height: 250px;
+    }
+  }
+
+  @media (max-width: 991.98px) {
+    .hero-title {
+      font-size: 3rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+    }
+
+    .section-spacing {
+      padding: 80px 0;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .section-spacing {
+      padding: 60px 0;
+    }
+
+    .team-carousel {
+      padding: 0 30px;
+    }
+
+  }
+
+  @media (max-width: 575.98px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+
+    .section-spacing {
+      padding: 40px 0;
+    }
+
+    .document-link {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .document-link i {
+      margin-bottom: 10px;
+    }
+
+    .card-title {
+      color: var(--secondary-color);
+      font-weight: 600;
+    }
+
+    .card-text.lead {
+      font-size: 1.1rem;
+      color: var(--dark-color);
+    }
+
+    .card .fas {
+      color: var(--primary-color);
+    }
+
+    .card h5 {
+      color: var(--secondary-color);
+      font-weight: 600;
+    }
+
+    .card p {
+      color: var(--dark-color);
+    }
+
+    .card .d-flex {
+      background-color: rgba(52, 152, 219, 0.05);
+      padding: 20px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .card .d-flex:hover {
+      background-color: rgba(52, 152, 219, 0.1);
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+  }
+ 
+
+@media (max-width: 400px) {
+  #container-process-print {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ }
+ #container-process {
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+}
+
+
+
+
+</style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-brain logo-icon"></i>
+        Sabi<span>dus</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Início</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#quem-somos">Equipe</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#solucao">Solução</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#modelo-negocio">Modelo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#processos">Processos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#cronograma">Cronograma</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#documentos">Docs</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero-section" id="home">
+    <div class="container hero-content">
+      <h1 class="hero-title">Bem-vindo ao Sabidus!</h1>
+      <p class="hero-subtitle">Inovando para um futuro melhor</p>
+      <a href="#quem-somos" class="btn btn-light btn-lg hero-cta">Conheça nossa equipe</a>
+    </div>
+  </section>
+
+  <section class="section-spacing bg-light-gradient">
+    <div class="container">
+      <h2 class="section-title text-center mb-5">Informações do Projeto</h2>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title mb-4"><i class="fas fa-brain logo-icon text-primary me-2 fas "></i>Sabidus: Plataforma de Suporte Acadêmico</h3>
+              <p class="card-text lead mb-4">O Sabidus é uma plataforma de fórum online projetada para apoiar estudantes de graduação e pós-graduação em diversas áreas acadêmicas.</p>
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="d-flex align-items-start">
+                    <i class="fas fa-graduation-cap fa-2x text-primary me-3 mt-1"></i>
+                    <div>
+                      <h5 class="mb-2">Áreas de Atuação</h5>
+                      <p>Ciências exatas, ciências sociais e humanidades.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="d-flex align-items-start">
+                    <i class="fas fa-bullseye fa-2x text-primary me-3 mt-1"></i>
+                    <div>
+                      <h5 class="mb-2">Objetivo Principal</h5>
+                      <p>Oferecer suporte acadêmico geral, revisão de trabalhos e esclarecimento de dúvidas específicas.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="d-flex align-items-start">
+                    <i class="fas fa-folder-tree fa-2x text-primary me-3 mt-1"></i>
+                    <div>
+                      <h5 class="mb-2">Organização de Conteúdo</h5>
+                      <p>Criação de categorias e subcategorias personalizadas pelos usuários.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="d-flex align-items-start">
+                    <i class="fas fa-tags fa-2x text-primary me-3 mt-1"></i>
+                    <div>
+                      <h5 class="mb-2">Sistema de Tags</h5>
+                      <p>Utilização de tags para facilitar a organização e busca de postagens.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-spacing bg-light-gradient">
+    <div class="container">
+      <h2 class="section-title text-center mb-5">Nossa Missão</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 p-3">
+            <div class="card-body text-start">
+              <h5 class="card-title"><i class="fas fa-lightbulb feature-icon" style="margin-right: 10px;"></i>Inovação</h5>
+              <p class="card-text">Buscamos constantemente novas soluções para os desafios do mercado.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 p-3">
+            <div class="card-body text-start">
+              <h5 class="card-title"><i class="fas fa-users feature-icon" style="margin-right: 10px;"></i>Colaboração </h5>
+              <p class="card-text">Trabalhamos juntos para alcançar resultados extraordinários.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 p-3">
+            <div class="card-body text-start">
+              <h5 class="card-title"><i class="fas fa-chart-line feature-icon" style="margin-right: 10px;"></i>Impacto</h5>
+              <p class="card-text">Nosso objetivo é criar soluções que façam a diferença no mundo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="quem-somos" class="section-spacing">
+    <div class="container">
+      <h2 class="section-title text-center mb-5">Nossa Equipe</h2>
+      <div class="row team-grid">
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div class="text-center">
+            <img src="./Img/Raniel.jpg" alt="Raniel Luna" class="team-member-img mb-3">
+            <h5>Raniel Luna</h5>
+            <p>Desenvolvedor</p>
+            <a href="https://www.linkedin.com/in/ranielluna/" class="btn btn-primary"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div class="text-center">
+            <img src="./Img/Luis.jpg" alt="Luis Brasiliano" class="team-member-img mb-3">
+            <h5>Luis Brasiliano</h5>
+            <p>Desenvolvedor</p>
+            <a href="https://www.linkedin.com/in/luiskbnascimento/" class="btn btn-primary"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div class="text-center">
+            <img src="./Img/Lucca.png" alt="Lucca Renè" class="team-member-img mb-3">
+            <h5>Lucca Renè</h5>
+            <p>Desenvolvedor</p>
+            <a href="https://www.linkedin.com/in/lucca-amrl/" class="btn btn-primary"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div class="text-center">
+            <img src="./Img/Pedro Augusto.jpeg" alt="Pedro Augusto" class="team-member-img mb-3">
+            <h5>Pedro Augusto</h5>
+            <p>Desenvolvedor</p>
+            <a href="https://www.linkedin.com/in/pedro-augusto-138b242b0/" class="btn btn-primary"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div class="text-center">
+            <img src="./Img/Marcello.jpg" alt="Marcello Victor" class="team-member-img mb-3">
+            <h5>Marcello Victor</h5>
+            <p>Desenvolvedor</p>
+            <a href="https://www.linkedin.com/in/victor-castro-9356021ba/" class="btn btn-primary"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div class="text-center">
+            <img src="./Img/Samara.jpeg" alt="Samara Beatriz" class="team-member-img mb-3">
+            <h5>Samara Beatriz</h5>
+            <p>Desenvolvedora</p>
+            <a href="https://www.linkedin.com/in/samara-beatriz/" class="btn btn-primary"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div class="text-center">
+            <img src="./Img/Dornelas.jpg" alt="João Dornelas" class="team-member-img mb-3">
+            <h5>João Dornelas</h5>
+            <p>Desenvolvedor</p>
+            <a href="https://www.linkedin.com/in/jo%C3%A3o-dornelas-4b8a4924a/" class="btn btn-primary"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div class="text-center">
+            <img src="./Img/Pedro Santana.jpeg" alt="Pedro Santana" class="team-member-img mb-3">
+            <h5>Pedro Santana</h5>
+            <p>Desenvolvedor</p>
+            <a href="https://www.linkedin.com/in/pedro-henrique-santana-campelo-7b5ab8238/" class="btn btn-primary"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div class="text-center">
+            <img src="./Img/Guilherme.jpg" alt="Guilherme Lima" class="team-member-img mb-3">
+            <h5>Guilherme Lima</h5>
+            <p>Desenvolvedor</p>
+            <a href="https://www.linkedin.com/in/guilherme-lima-133995222/" class="btn btn-primary"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div class="text-center">
+            <img src="./Img/Professora Rafaella.png" alt="Professora Rafaella" class="team-member-img mb-3">
+            <h5>Professora Rafaella</h5>
+            <p>Orientadora do Projeto</p>
+            <a href="https://www.linkedin.com/in/rafaella-matos/" class="btn btn-primary"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="solucao" class="section-spacing bg-light-gradient">
+    <div class="container">
+      <h2 class="section-title text-center mb-5">Nossa Solução</h2>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title mb-4">Descrição da Solução Proposta</h3>
+              <p class="card-text lead mb-4">A solução idealizada foi uma plataforma de fórum que conecta estudantes com mentores e colegas para suporte acadêmico. As principais funcionalidades incluem:</p>
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="d-flex align-items-start">
+                    <i class="fas fa-question-circle fa-2x text-primary me-3 mt-1"></i>
+                    <div>
+                      <h5 class="mb-2">Sistema de Perguntas e Respostas</h5>
+                      <p>Permite a postagem de perguntas e obtenção de respostas de mentores e da comunidade, com um sistema de votação para classificar a qualidade das respostas.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="d-flex align-items-start">
+                    <i class="fas fa-user-circle fa-2x text-primary me-3 mt-1"></i>
+                    <div>
+                      <h5 class="mb-2">Perfis de Usuário</h5>
+                      <p>Perfis com áreas de especialização, experiências acadêmicas e interesses.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="d-flex align-items-start">
+                    <i class="fas fa-comments fa-2x text-primary me-3 mt-1"></i>
+                    <div>
+                      <h5 class="mb-2">Mensagens Diretas</h5>
+                      <p>Facilita discussões mais detalhadas e confidenciais entre usuários.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="d-flex align-items-start">
+                    <i class="fas fa-tags fa-2x text-primary me-3 mt-1"></i>
+                    <div>
+                      <h5 class="mb-2">Categorias e Subcategorias</h5>
+                      <p>Organização dinâmica de tópicos por meio de postagens e tags.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="d-flex align-items-start">
+                    <i class="fas fa-bell fa-2x text-primary me-3 mt-1"></i>
+                    <div>
+                      <h5 class="mb-2">Sistema de Notificações e Moderação</h5>
+                      <p>Mantém os usuários informados e garante a qualidade das interações.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="modelo-negocio" class="section-spacing">
+    <div class="container">
+      <h2 class="section-title text-center mb-5">Modelo de Negócio</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Público-alvo</h5>
+              <p class="card-text">O público-alvo da Sabidus é composto por estudantes e profissionais acadêmicos, educadores e especialistas interessados em uma plataforma para compartilhar conhecimento.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Proposta de Valor</h5>
+              <p class="card-text">Estudantes: Acesso gratuito a especialistas e serviços pagos para aprendizado avançado.
+                Universidades e Empresas: Plataforma para divulgação de conteúdo e recrutamento.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Fontes de Receita</h5>
+              <ul class="card-text">
+                <li>Patrocínios Acadêmicos: Parcerias com instituições educacionais.</li>
+                <li>Anúncios: Anúncios direcionados e patrocínios.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="processos" class="section-spacing bg-light-gradient">
+    <div class="container">
+      <h2 class="section-title text-center mb-5">Nossos Processos</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="process-step" id="container-process">
+              <h5><i class="fas fa-user text-primary me-2" title="Usuário"></i>Imersão</h5>
+              <p>Analisamos as necessidades dos usuários para melhorar a experiência</p>
+              <button class="info-btn" data-target="#popup-imersao">Mais informações</button>
+          </div>
+      </div>
+      
+      <div class="col-md-4 mb-4">
+          <div class="process-step" id="container-process">
+              <h5><i class="fas fa-lightbulb text-primary me-2"></i>Ideação</h5>
+              <p>Brainstorming de funcionalidades e estrutura da plataforma.</p>
+              <button class="info-btn" data-target="#popup-ideacao">Mais informações</button>
+          </div>
+      </div>
+      
+      <div id="popup-imersao" class="popup">
+          <div class="popup-content">
+              <span class="close">&times;</span>
+              <p>- Análise de necessidades dos usuários.
+                Atividades Realizadas:
+                Experiência como alunos: Como somos também estudantes da faculdade, vivenciamos na pele as dificuldades em encontrar apoio nas disciplinas de tecnologia. Isso nos deu uma percepção direta das necessidades e expectativas dos usuários.
+                Mapeamento de dores e expectativas: Criamos um mapa das principais dificuldades (como a falta de recursos rápidos para dúvidas e o acesso restrito a materiais) e expectativas dos alunos em relação ao sistema de mentoria.
+                </p>
+          </div>
+      </div>
+      
+      <div id="popup-ideacao" class="popup">
+          <div class="popup-content">
+              <span class="close">&times;</span>
+              <p>Brainstorming de funcionalidades:
+                Indicação de vídeos de aprendizado: Ao responder dúvidas, os mentores terão a opção de indicar vídeos educativos que já foram úteis para outros alunos, facilitando o acesso a conteúdos complementares de qualidade. Isso ajuda a agilizar o processo de aprendizado e fornece recursos externos confiáveis.
+                
+                Autenticação de usuário:
+                Autenticação via Google: Discutimos a possibilidade de permitir login usando contas Google, visando facilitar o acesso ao sistema.
+                Autenticação via e-mail institucional: Outra ideia foi a de restringir o login apenas aos alunos da faculdade, utilizando seus e-mails institucionais para garantir exclusividade e segurança no acesso.
+                
+                Dúvidas levantadas:
+                Qual seria o método de autenticação mais adequado, considerando segurança e facilidade de uso?
+                Técnicas utilizadas:
+                Mesa redonda: Realizamos o brainstorming em formato de mesa redonda, onde cada membro da equipe contribuiu com ideias e discutimos coletivamente as funcionalidades propostas.</p>
+          </div>
+      </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="process-step" id="container-process" >
+            <h5><i class="fas fa-puzzle-piece text-primary me-2" title="Protótipo"></i>Prototipação</h5>
+            <p>Desenvolvemos um protótipo para tornar a interface mais intuitiva.</p>
+            <button class="info-btn" data-target="#popup-prototipacao">Mais informações</button>
+          </div>
+        </div>
+
+        <div id="popup-prototipacao" class="popup">
+          <div class="popup-content">
+              <span class="close">&times;</span>
+              <p>Confira o nosso protótipo navegável no Figma, que representa fielmente todos os detalhes do nosso site. Este é um protótipo realista, projetado para oferecer uma experiência interativa completa, permitindo visualizar e testar as funcionalidades planejadas para a versão final.
+                </p>
+          </div>
+      </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="process-step" id="container-process" >
+            <h5><i class="fas fa-code text-primary me-2"></i>Desenvolvimento</h5>
+            <p>Estamos desenvolvendo o projeto com HTML, CSS e JavaScript.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="process-step" id="container-process" >
+            <h5><i class="fas fa-check-circle text-primary me-2" title="Teste"></i></i>Teste</h5>
+            <p>Em breve, iniciaremos a fase de testes do projeto.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="process-step" id="container-process">
+            <h5><i class="fas fa-tasks text-primary me-2"></i> Gerenciamento</h5>
+            <p>A parte de gerenciamento ainda está sendo estruturada. </p>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-md-6 mb-4">
+          <div class="process-step text-center" id="container-process-print">
+            <h5><i class="fas fa-project-diagram text-primary me-2"></i>Protótipo</h5>
+            <a href="https://www.figma.com/design/7EB1TeOGioD4bL3ZJrupcH/Untitled?node-id=0-1&m=dev&t=Zo7T3hPCE82xmDXZ-1"><img src="./Img/Prototipação.jpeg" class="img-fluid rounded shadow-sm mt-3" alt="Prototipo" width="100%" height="auto"></a>
+            <p class="mt-3">Criação de protótipos interativos para validar conceitos e melhorar a experiência do usuário antes do desenvolvimento completo.</p>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="process-step text-center" id="container-process-print">
+            <h5><i class="fas fa-table text-primary me-2"></i> Matriz SWOT</h5>
+            <a href="https://miro.com/welcome/UldxbFl2cm02YnEzM2xDbjNVT0cwcmZyVndpSjltd3Vyc2FhZ0s2cEZFTVZ0NVVxbFByTHRnRTMyU3g0akp4d3wzNDU4NzY0NTU0MTE5ODgwOTA3fDE=?share_link_id=225665348409"><img src="./Img/Matriz CSD.png" alt="Matriz SWOT" class="img-fluid rounded shadow-sm mt-3" width="100%" height="auto"></a>
+            <p class="mt-3">Usamos a Matriz SWOT para identificar forças, fraquezas, oportunidades e ameaças do projeto, ajudando a direcionar nossas decisões e estratégias.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cronograma" class="section-spacing bg-light-gradient">
+    <div class="container">
+      <h2 class="section-title text-center mb-5">Cronograma</h2>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <div class="timeline">
+                <div class="timeline-item">
+                  <h5>19/08</h5>
+                  <p>Definição das equipes e escolha do desafio proposto</p>
+                </div>
+                <div class="timeline-item">
+                  <h5>27/08</h5>
+                  <p>Definição do Design, paleta de cores, estrutura da plataforma</p>
+                </div>
+                <div class="timeline-item">
+                  <h5>02/09</h5>
+                  <p>Preparação do Front-End da ME</p>
+                </div>
+                <div class="timeline-item">
+                  <h5>09/09</h5>
+                  <p>Entrega da ME no Classroom</p>
+                </div>
+                <div class="timeline-item">
+                  <h5>16/09</h5>
+                  <p>Em andamento</p>
+                </div>
+                <div class="timeline-item">
+                  <h5>23/09</h5>
+                  <p>Em andamento</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="documentos" class="section-spacing">
+    <div class="container">
+      <h2 class="section-title text-center mb-5">Documentos</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <a href="https://trello.com/invite/b/66ccb663d11f5fc08181e45c/ATTI45aaab530fb81b2ccc0940161c1d3e9564C53379/sabidus" class="document-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-trello"></i>
+            <div class="document-info">
+              <h5 class="document-title">Trello</h5>
+              <p class="document-description">Acompanhe o progresso do projeto no nosso quadro Trello</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4 mb-4">
+          <a href="https://miro.com/welcome/UldxbFl2cm02YnEzM2xDbjNVT0cwcmZyVndpSjltd3Vyc2FhZ0s2cEZFTVZ0NVVxbFByTHRnRTMyU3g0akp4d3wzNDU4NzY0NTU0MTE5ODgwOTA3fDE=?share_link_id=225665348409" class="document-link" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-link"></i>
+            <div class="document-info">
+              <h5 class="document-title">Miro</h5>
+              <p class="document-description">Confira o progresso do fluxo do nosso projeto no Miro</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4 mb-4">
+          <a href="https://docs.google.com/document/d/1WVaaXcgvpALaKBuN1UAhPxX5ekIvCzjOvuDY-oU6ZEw/edit?usp=drivesdk" class="document-link" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-file-alt"></i>
+            <div class="document-info">
+              <h5 class="document-title">Documento</h5>
+              <p class="document-description">Acompanhe nosso documento atualizado no Google Docs</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4 mb-4">
+          <a href="https://github.com/ranielluna/Sabidus" class="document-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i>
+            <div class="document-info">
+              <h5 class="document-title">Github</h5>
+              <p class="document-description">Explore nosso repositório no GitHub e descubra nossos projetos</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4 mb-4">
+          <a href="https://www.figma.com/design/7EB1TeOGioD4bL3ZJrupcH/Untitled?node-id=0-1&m=dev&t=Zo7T3hPCE82xmDXZ-1" class="document-link" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-figma"></i>
+            <div class="document-info">
+              <h5 class="document-title">Figma</h5>
+              <p class="document-description">Veja como organizamos nossos protótipos e anotações no Figma</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4 mb-4">
+          <a href="https://www.canva.com/design/DAGP0Yiewic/uW327Xhdkl_H9djVDpzz7g/edit?utm_content=DAGP0Yiewic&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" class="document-link" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-paint-brush"></i>
+            <div class="document-info">
+              <h5 class="document-title">Canva</h5>
+              <p class="document-description">Confira nossos projetos, designs e apresentações no Canva</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5>Sabidus</h5>
+          <p>Inovando para um futuro melhor</p>
+        </div>
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5>Links Rápidos</h5>
+          <ul class="list-unstyled">
+            <li><a href="#home">Início</a></li>
+            <li><a href="#quem-somos">Equipe</a></li>
+            <li><a href="#solucao">Solução</a></li>
+            <li><a href="#modelo-negocio">Modelo de Negócio</a></li>
+            <li><a href="#processos">Processos</a></li>
+            <li><a href="#cronograma">Cronograma</a></li>
+            <li><a href="#documentos">Docs</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Contato</h5>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-envelope me-2"></i> contato@sabidus.com</li>
+            <li><i class="fas fa-phone me-2"></i> (81) 9999-9999</li>
+            <li><i class="fas fa-map-marker-alt me-2"></i> Recife, PE</li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start">
+          <p>&copy; 2023 Sabidus. Todos os direitos reservados.</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/ranielluna/Sabidus"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    document.querySelectorAll('.info-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        var target = document.querySelector(this.getAttribute('data-target'));
+        target.style.display = 'block';
+    });
+});
+
+document.querySelectorAll('.close').forEach(span => {
+    span.addEventListener('click', function() {
+        this.parentElement.parentElement.style.display = 'none';
+    });
+});
+
+window.onclick = function(event) {
+    document.querySelectorAll('.popup').forEach(popup => {
+        if (event.target == popup) {
+            popup.style.display = 'none';
+        }
+    });
+}
+  </script>
+</body>
+</html>
